@@ -88,11 +88,12 @@ function fillKeyboardEn() {
     }
     // add letters to keyboard
     if (i == 1) {
-      enLetters.forEach((el) => {
+      enLetters.forEach((el, index) => {
         let key = document.createElement("div");
         key.classList.add("key");
         key.classList.add("key-letter");
         key.setAttribute("data-key", `Key${el.toUpperCase()}`);
+        key.setAttribute("data-shift", `${enLettersShift[index]}`);
         key.textContent = el;
         keyboard.append(key);
       });
@@ -212,7 +213,9 @@ display.addEventListener("keydown", e => {
   else if (e.code.startsWith('Key')) {
     e.preventDefault();
     key.classList.add("key-letter--active");
-    insertTextAtCursor(display, key.textContent);
+    e.shiftKey && key
+      ? insertTextAtCursor(display, key.getAttribute('data-shift'))
+      : insertTextAtCursor(display, key.textContent);
     setTimeout(() => key.classList.remove("key-letter--active"), 200);
   }
   // arrows
