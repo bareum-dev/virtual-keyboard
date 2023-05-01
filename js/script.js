@@ -218,17 +218,7 @@ display.addEventListener("keydown", e => {
     setTimeout(() => key.classList.remove("key-arrow--active"), 200);
   }
   // modifier
-  else if (
-    e.code.startsWith("Caps") ||
-    e.code.startsWith("Backspace") ||
-    e.code.startsWith("Tab") ||
-    e.code.startsWith("Del") ||
-    e.code.startsWith("Enter") ||
-    e.code.startsWith("Space") ||
-    e.code.startsWith("Control") ||
-    e.code.startsWith("Alt") ||
-    e.code.startsWith("Shift")
-  ) {
+  else if (modifier.includes(e.code)) {
     key.classList.add("key-modifier--active");
     setTimeout(() => key.classList.remove("key-modifier--active"), 200);
   }
