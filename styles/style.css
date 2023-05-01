@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s;
+  font-family: 'Arvo', serif;
+}
+
+*::selection {
+  background-color: #FA269F;
+  color: #B7EE31;
+}
+
+body {
+  padding: 10px;
+  max-width: 100%;
+  max-height: 100vh;
+  height: 100vh;
+  background: linear-gradient(#05222A, #134754, #05222A);
+}
+
+.container {
+  border: 1px solid #134754;
+  width: 100%;
+  height: 100%;
+
+  padding: 10px 0;
+
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.keyboard {
+  display: grid;
+  gap: 0.3em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.key {
+  font-size: 20px;
+  color: #d5e8ed;
+
+  width: fit-content;
+  min-width: 2.6em;
+  min-height: 2.6em;
+
+  border: 1px solid #d5e8ed;
+  border-radius: 2px;
+
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (hover: hover) {
+  .key:hover {
+    cursor: pointer;
+    background: rgba(213, 232, 237, 0.2);
+    color: aliceblue;
+    border-color: transparent;
+  }
+}
+
+.key-number:active {
+  background: #FBFC00;
+}
+
+.key-letter:active {
+  background: #2FF2E1;
+}
+
+.key-modifier:active {
+  background: #FA269F;
+}
+
+.key-symbol:active {
+  background: #FF5D00;
+}
+
+.key-arrow:active {
+  background: #B7EE31;
+}
+
+
+/* *********************** */
+.key-number--active {
+  background: #FBFC00;
+}
+
+.key-letter--active {
+  background: #2FF2E1;
+}
+
+.key-modifier--active {
+  background: #FA269F;
+}
+
+.key-symbol--active {
+  background: #FF5D00;
+}
+
+.key-arrow--active {
+  background: #B7EE31;
+}
+
+
+/* *********************** */
+.key-arrow {
+  background: rgba(213, 232, 237, 0.2);
+}
+
+
+/* *********************** */
+.keyboard {
+  grid-template-areas: 
+  "backquote one two three four five six seven eight nine zero minus equal backspace del"
+  "tab q w e r t y u i o p bracketLeft bracketRight backslash ."
+  "capsLock a s d f g h j k l semicolon quote enter enter ."
+  "shiftLeft z x c v b n m comma period slash . shiftRight arrowUp ."
+  "ctrlLeft altLeft space space space space space space space altRight ctrlRight . arrowLeft arrowDown arrowRight"
+  ;
+}
+/* FIRST LINE */
+.key[data-key="Backquote"] { grid-area: backquote; }
+.key[data-key="Digit1"] { grid-area: one; margin-left: -3em;}
+.key[data-key="Digit2"] { grid-area: two; margin-left: -3em;}
+.key[data-key="Digit3"] { grid-area: three; margin-left: -3em;}
+.key[data-key="Digit4"] { grid-area: four; margin-left: -3em;}
+.key[data-key="Digit5"] { grid-area: five; margin-left: -3em;}
+.key[data-key="Digit6"] { grid-area: six; margin-left: -3em;}
+.key[data-key="Digit7"] { grid-area: seven; margin-left: -3em;}
+.key[data-key="Digit8"] { grid-area: eight; margin-left: -3em;}
+.key[data-key="Digit9"] { grid-area: nine; margin-left: -2.9em;}
+.key[data-key="Digit0"] { grid-area: zero; margin-left: -3.1em;}
+.key[data-key="Minus"] { grid-area: minus; margin-left: -5.45em;}
+.key[data-key="Equal"] { grid-area: equal; margin-left: -2.85em; }
+.key[data-key="Backspace"] { grid-area: backspace; margin-left: -4.45em;}
+.key[data-key="Del"] {grid-area: del; }
+/* SECOND LINE */
+.key[data-key="Tab"] { grid-area: tab; }
+.key[data-key="KeyQ"] { grid-area: q; margin-left: -2em;}
+.key[data-key="KeyW"] { grid-area: w; margin-left: -2em;}
+.key[data-key="KeyE"] { grid-area: e; margin-left: -2em;}
+.key[data-key="KeyR"] { grid-area: r; margin-left: -1.95em;}
+.key[data-key="KeyT"] { grid-area: t; margin-left: -1.95em;}
+.key[data-key="KeyY"] { grid-area: y; margin-left: -1.95em;}
+.key[data-key="KeyU"] { grid-area: u; margin-left: -1.95em;}
+.key[data-key="KeyI"] { grid-area: i; margin-left: -1.95em;}
+.key[data-key="KeyO"] { grid-area: o; margin-left: -1.95em;}
+.key[data-key="KeyP"] { grid-area: p; margin-left: -2.15em;}
+.key[data-key="BracketLeft"] { grid-area: bracketLeft; margin-left: -4.5em;}
+.key[data-key="BracketRight"] { grid-area: bracketRight; margin-left: -1.9em;}
+.key[data-key="Backslash"] { grid-area: backslash; margin-left: -3.4em;}
+/* THIRD LINE */
+.key[data-key="CapsLock"] { grid-area: capsLock;}
+.key[data-key="KeyA"] { grid-area: a; margin-left: -1em;}
+.key[data-key="KeyS"] { grid-area: s; margin-left: -1em;}
+.key[data-key="KeyD"] { grid-area: d; margin-left: -1em;}
+.key[data-key="KeyF"] { grid-area: f; margin-left: -1em;}
+.key[data-key="KeyG"] { grid-area: g; margin-left: -1em;}
+.key[data-key="KeyH"] { grid-area: h; margin-left: -1em;}
+.key[data-key="KeyJ"] { grid-area: j; margin-left: -1em;}
+.key[data-key="KeyK"] { grid-area: k; margin-left: -1em;}
+.key[data-key="KeyL"] { grid-area: l; margin-left: -0.95em;}
+.key[data-key="Semicolon"] { grid-area: semicolon; margin-left: -1.15em;}
+.key[data-key="Quote"] { grid-area: quote; margin-left: -3.5em;}
+.key[data-key="Enter"] { grid-area: enter; margin-left: -0.9em;}
+/* FOURTH LINE */
+.shiftLeft { grid-area: shiftLeft; }
+.key[data-key="KeyZ"] { grid-area: z;}
+.key[data-key="KeyX"] { grid-area: x;}
+.key[data-key="KeyC"] { grid-area: c;}
+.key[data-key="KeyV"] { grid-area: v;}
+.key[data-key="KeyB"] { grid-area: b;}
+.key[data-key="KeyN"] { grid-area: n;}
+.key[data-key="KeyM"] { grid-area: m;}
+.key[data-key="Comma"] { grid-area: comma }
+.key[data-key="Period"] { grid-area: period; margin-left: 0.05em;}
+.key[data-key="Slash"] { grid-area: slash; margin-left: -0.15em;}
+.key[data-key="ShiftRight"] { grid-area: shiftRight; margin-left: -2.8em;}
+.key[data-key="ArrowUp"] { grid-area: arrowUp; }
+/* FIFTH LINE */
+.key[data-key="ControlLeft"] { grid-area: ctrlLeft; }
+.key[data-key="AltLeft"] { grid-area: altLeft; margin-left: -2.55em;}
+.key[data-key="Space"] { grid-area: space; margin-left: -1.2em;}
+.key[data-key="AltRight"] { grid-area: altRight; margin-left: -1.2em;}
+.key[data-key="ControlRight"] { grid-area: ctrlRight; }
+.key[data-key="ArrowLeft"] { grid-area: arrowLeft; margin-left: 1.6em;}
+.key[data-key="ArrowDown"] { grid-area: arrowDown; }
+.key[data-key="ArrowRight"] { grid-area: arrowRight; }
+
+
+/* *********************** */
+.backquote { width: 4.5em; }
+.backspace { width: 7em; }
+.tab { width: 5.5em; }
+.backslash { width: 5.9em; }
+.capsLock { width: 6.5em; }
+.enter { width: 7.9em; }
+.shiftLeft { width: 7.5em; }
+.shiftRight { width: 7em; }
+.ctrlLeft { width: 5em; }
+.altLeft { width: 4em; }
+.space { width: 100%; }
+.altRight { width: 4em; }
+.ctrlRight { width: 5em; }
+
+
+/* *********************** */
+.display {
+  font-family: inherit;
+  font-size: 18px;
+  color: #d5e8ed;
+  letter-spacing: 0.1em;
+
+  overflow-y: auto;
+  resize: none;
+
+  width: 90%;
+  max-width: 978px;
+  height: 240px;
+  max-height: 100%;
+  min-height: 60px;
+
+  padding: 1em;
+
+  background: rgba(213, 232, 237, 0.2);
+  border: none;
+}
+
+.display::-webkit-scrollbar {
+  background-color: transparent;
+};
+
+.display::-webkit-scrollbar-track {
+  background-color: rgba(213, 232, 237, 0.9);
+}
+
+.display::-webkit-scrollbar-thumb {
+  background-color: rgba(213, 232, 237, 0.9);
+}
+
+.display:focus {
+  outline: none;
+}
+
+
+/* *********************** */
+.title {
+  letter-spacing: 0.6em;
+  line-height: 3em;
+  color: rgba(213, 232, 237, 0.8);
+  text-shadow: 5px -1px 5px #FA269F, -1px 5px 5px #B7EE31;
+}
+
+
+/* *********************** */
+.changeLang,
+.os {
+  color: rgba(213, 232, 237, 0.6);
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  line-height: 1.8em;
+}

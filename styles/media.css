@@ -1,0 +1,109 @@
+@media all and (max-width: 1060px) {
+  .key {
+    font-size: 19px;
+  }
+}
+
+@media all and (max-width: 980px) {
+  .key {
+    font-size: 17px;
+  }
+
+  .backquote {
+    width: 4em;
+  }
+
+  .tab {
+    width: 5em;
+  }
+
+  .capsLock {
+    width: 6em;
+  }
+
+  .shiftLeft {
+    width: 7em;
+  }
+
+  .ctrlLeft {
+    width: 4.5em;
+  }
+}
+
+@media all and (max-width: 890px) {
+  .key {
+    font-size: 15px;
+  }
+
+  .backspace {
+    width: 5.8em;
+    margin-left: -3.4em;
+  }
+
+  .backslash {
+    width: 4.9em;
+    margin-left: -2.5em;
+  }
+
+  .enter {
+    width: 6.8em;
+  }
+
+  .shiftRight {
+    width: 6em;
+    margin-left: -2.9em;
+  }
+
+  .altRight {
+    width: 4em;
+  }
+
+  .ctrlRight {
+    width: 5em;
+  }
+
+  .del {
+    margin-left: -1.05em;
+    margin-left: -0.2em;
+  }
+
+  .arrowUp {
+    margin-left: -0.1em;
+  }
+
+  .arrowLeft {
+    margin-left: 0.5em;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .key {
+    font-size: 13px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .key {
+    font-size: 11px;
+  }
+}
+
+@media all and (max-width: 610px) {
+  .key {
+    font-size: 9px;
+  }
+}
+
+
+/* ******************* */
+@media all and (max-width: 980px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media all and (max-width: 700px) {
+  .title {
+    font-size: 18px;
+  }
+}
