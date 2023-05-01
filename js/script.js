@@ -53,6 +53,9 @@ let enSymbolsShift = Object.values(keysEn[2]);
 // KEYBOARD - modifier
 let modifier = Object.keys(keysEn[3]);
 
+// KEYBOARD - modifier - e.code
+let modifierCode = Object.values(keysEn[3]);
+
 // KEYBOARD - arrows
 let arrows = Object.keys(keysEn[4]);
 
@@ -196,9 +199,8 @@ function fillKeyboardEn() {
 // FILL keyboard - EN // the end
 
 
-//
+// add characters to the display when keyboard buttons are pressed
 display.addEventListener("keydown", e => {
-
   let key = document.querySelector(`.key[data-key="${e.code}"]`);
 
   // numbers
@@ -219,9 +221,13 @@ display.addEventListener("keydown", e => {
     setTimeout(() => key.classList.remove("key-arrow--active"), 200);
   }
   // modifier
-  else if (modifier.includes(e.code)) {
+  else if (modifierCode.includes(`${e.code}`)) {
     key.classList.add("key-modifier--active");
     setTimeout(() => key.classList.remove("key-modifier--active"), 200);
+    if (e.code == "Tab") {
+      e.preventDefault();
+      insertTextAtCursor(display, `\n`);
+    }
   }
   // symbols
   else {
@@ -230,6 +236,24 @@ display.addEventListener("keydown", e => {
     setTimeout(() => key.classList.remove("key-symbol--active"), 200);
   }
 })
+
+
+let letterArray = document.querySelectorAll(".key-letter");
+let numbersArray = document.querySelectorAll(".key-number");
+let symbolsArray = document.querySelectorAll(".key-symbol");
+let buttonsToDisplay = [...letterArray, ...numbersArray, ...symbolsArray];
+
+
+// add characters to the display when clicking on the virtual keyboard buttons
+for (let button of buttonsToDisplay) {
+  button.addEventListener('click', () => {
+    insertTextAtCursor(display, button.textContent);
+  })
+}
+
+
+//   
+
 
 
 // add letter to where the cursor is
