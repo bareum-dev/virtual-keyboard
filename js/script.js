@@ -56,6 +56,7 @@ let modifier = Object.keys(keysEn[3]);
 // KEYBOARD - arrows
 let arrows = Object.keys(keysEn[4]);
 
+
 // check LocalStorage
 let lang;
 
@@ -202,14 +203,14 @@ display.addEventListener("keydown", e => {
 
   // numbers
   if (e.code.startsWith('Digit')) {
-    // e.preventDefault();
     key.classList.add("key-number--active");
     setTimeout(() => key.classList.remove("key-number--active"), 200);
   }
   // letters
   else if (e.code.startsWith('Key')) {
-    // e.preventDefault();
+    e.preventDefault();
     key.classList.add("key-letter--active");
+    insertTextAtCursor(display, key.textContent);
     setTimeout(() => key.classList.remove("key-letter--active"), 200);
   }
   // arrows
@@ -229,3 +230,27 @@ display.addEventListener("keydown", e => {
     setTimeout(() => key.classList.remove("key-symbol--active"), 200);
   }
 })
+
+
+// add letter to where the cursor is
+function insertTextAtCursor(el, text, offset) {
+  let val = el.value,
+    endIndex,
+    range,
+    doc = el.ownerDocument;
+  if (
+    typeof el.selectionStart == "number" &&
+    typeof el.selectionEnd == "number"
+  ) {
+    endIndex = el.selectionEnd;
+    el.value = val.slice(0, endIndex) + text + val.slice(endIndex);
+    el.selectionStart = el.selectionEnd =
+      endIndex + text.length + (offset ? offset : 0);
+  } else if (doc.selection != "undefined" && doc.selection.createRange) {
+    el.focus();
+    range = doc.selection.createRange();
+    range.collapse(false);
+    range.text = text;
+    range.select();
+  }
+}
