@@ -1,5 +1,4 @@
 import keysEn from "./keys-english.js";
-console.log(keysEn);
 
 const body = document.querySelector("body");
 
@@ -161,7 +160,7 @@ function fillKeyboardEn() {
         if (el == "caps lock") key.setAttribute("data-key", "CapsLock");
         if (el == "backspace") key.setAttribute("data-key", "Backspace");
         if (el == "tab") key.setAttribute("data-key", "Tab");
-        if (el == "del") key.setAttribute("data-key", "Del");
+        if (el == "del") key.setAttribute("data-key", "Delete");
         if (el == "enter") key.setAttribute("data-key", "Enter");
         if (el == "space") key.setAttribute("data-key", "Space");
         if (el == "shiftLeft") key.setAttribute("data-key", "ShiftLeft");
@@ -220,8 +219,10 @@ display.addEventListener("keydown", e => {
   }
   // arrows
   else if (e.code.startsWith("Arrow")) {
+    key.classList.remove("key-arrow");
     key.classList.add("key-arrow--active");
     setTimeout(() => key.classList.remove("key-arrow--active"), 200);
+    setTimeout(() => key.classList.add("key-arrow"), 201);
   }
   // modifier
   else if (modifierCode.includes(`${e.code}`)) {
